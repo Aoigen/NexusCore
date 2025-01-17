@@ -1,0 +1,9 @@
+{
+  "java.project.referencedLibraries": [
+    "WEB-INF/lib/jakarta.servlet-api-6.1.0.jar"
+  ],
+  "java.project.outputPath": "WEB-INF/classes",
+  "java.project.sourcePaths": [
+    "src"
+  ]
+}
