@@ -1,0 +1,93 @@
+<!-- A tag <html> contém todo o código da página. É a raiz do documento HTML
+    e o lar de todas as outras tags. Ela, assim como qualquer tag, precisa ser fechada.
+    O fechamento de qualquer tag é identificado por uma barra no começo do nome da tag.
+    Ex: <html> Conteudo </html> -->
+
+<!DOCTYPE html>
+
+<!-- A tag <head> contém informações sobre a própria página e não o conteúdo visível
+    para o usuário. Essas informações são carregadas antes do corpo da página para que
+    os navegadores saibam como lidar com o conteúdo antes de renderizá-lo.
+        
+    Armazena informações importantes sobre a página, como o título (exibido na aba do
+    navegador), links para arquivos externos (CSS, JavaScript, etc.) e metadados
+    (como charset e viewport).-->
+    
+<head>
+    
+    <!-- Links para arquivos externos: 
+        Stylesheets & Scripts (CSS & JavaScript).-->
+    
+    <link rel="stylesheet" href="../stylesheets/register.css">
+    <script src="../scripts/register.js" defer></script><!-- Ao utilizar "defer", garantimos que o arquivo .js só carregue após o carregamento completo do .html. -->
+    
+    <!-- Título (na aba do navegador).-->
+    
+    <title>Register</title>
+    
+</head>
+    
+<!-- A tag <body> contém todo o conteúdo visível da página, como texto,
+    imagens, vídeos e botões.
+        
+    Será comum a utilização de tags <div> por aqui, utilizadas para organização e estilização da página,
+    contendo atributos como 'class' e 'id' para identificação do CSS, JS, Java, etc.-->
+    
+<body>
+
+    <div class="background">
+
+        <div class="inputInfo">
+            <h1>Input Information</h1>
+            <p id="aboutInput">Esse é um projeto acadêmico, portanto, não insira dados reais neste formulário.</p>
+        </div>
+
+        <form class="registerForm">
+
+            <div class="title">
+                <h1>Register</h1>
+                <a href="../pages/login.html">
+                    <button type="button"></button>
+                </a>        
+            </div>
+
+            <div class="inputCompleteNameContainer">
+                <input id="inputCompleteName" type="text" placeholder="Complete Name" required>
+            <!--<button id="toggleCompleteName" type="button"></button>-->
+            </div>
+                
+            <div class="inputUsernameContainer">
+                <input id="inputUsername" type="text" placeholder="Username" required>
+            <!--<button id="toggleUsername" type="button"></button>-->
+            </div>
+
+            <div class="inputEmailContainer">
+                <input id="inputEmail" type="email" placeholder="E-mail" required>
+            <!--<button id="toggleEmail" type="button"></button>-->
+            </div>
+
+            <div class="inputTelephoneContainer">
+                <input id="inputTelephone" type="tel" placeholder="Telephone" required>
+            <!--<button id="toggleTelephone" type="button"></button>-->
+            </div>
+
+            <div class="inputPasswordContainer">
+                <input id="inputPassword" type="password" placeholder="Password" required>
+                <button id="togglePassword" type="button"></button>
+            </div>
+
+            <div class="inputConfirmPasswordContainer">
+                <input id="inputConfirmPassword" type="password" placeholder="Confirm Password" required>
+            <!--<button id="toggleConfirmPassword" type="button"></button>-->
+            </div>
+
+            <a href="">                        
+                <button id="registerButton">Register</button>
+            </a>                                        
+                
+        </form>
+
+    </div>
+    
+</body>
+</html>

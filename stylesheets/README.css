@@ -1,0 +1,347 @@
+/*
+    Este é um arquivo de estilização de HTML (.CSS).
+    Nele, iremos definir como os elementos da página devem ser exibidos,
+    incluindo margens, espaçamentos, fontes, cores de fundo, texto e muito mais.
+*/
+
+
+
+/*
+                                            Seletores no CSS:
+
+    No CSS, usamos diferentes tipos de seletores para aplicar estilos aos elementos do HTML.
+    Aqui estão os principais tipos de seletores e como utilizá-los:
+*/
+
+/*
+    1. Seletor de Elemento (tags)
+    Este seletor estiliza todas as ocorrências de uma tag específica.
+
+    Exemplo:
+
+    h1 {
+    font-size: 24px;
+    color: blue;
+    }
+
+    (Aplica o tamanho da fonte como 24px e a cor azul a todas as tags <h1>.)
+*/
+
+/*
+    2. Seletor de Classe
+    O ponto (.) antes do nome indica que este é um seletor de 'class'.
+    Classes podem ser reutilizadas em vários elementos, como fazer varias <div>'s compartilharem uma borda ao redor, com a mesma cor,
+    tamanho e muito mais.
+
+    Exemplo:
+
+    .Envelope {
+    border: 2px solid;
+    text-align: center;
+    }
+
+    (Aplica uma borda sólida de 2px ao redor de qualquer elemento que utilize a classe "Envelope", além de alinhamento central
+    do conteúdo dessas classes.)
+*/
+
+/*
+    3. Seletor de ID:
+    O cerquilha (#) antes do nome indica que este é um seletor de id.
+    Diferente de 'class', 'id's devem ser únicos na página, ou seja, cada id só pode ser usado uma vez.
+
+    Exemplo:
+
+    #TitleSection {
+    background: lightgray;
+    }
+
+    (Aplica uma cor de fundo cinza-claro ao elemento que possui o id "TitleSection".)
+*/
+
+/*
+    4. Seletor Universal:
+    O asterisco (*) seleciona todos os elementos da página.
+
+    Exemplo:
+
+    * {
+    margin: 0;
+    padding: 0;
+    }
+
+    (Remove as margens e os espaçamentos internos padrões de todos os elementos sem
+    atributos identificadores como 'id', 'class', etc.)
+*/
+
+/*
+    5. Seletor de Descendentes:
+    Aplica estilos apenas aos elementos **filhos diretos** de um elemento pai específico.
+
+    Exemplo:
+
+    .Title p {
+    color: green;
+    }
+    
+    (Estiliza todas as tags <p> que estejam dentro de uma div com a classe "Title".)
+*/
+
+/*
+    6. Seletor de Grupo:
+    Permite aplicar o mesmo estilo a múltiplos elementos.
+
+    Exemplo:
+
+
+    h1, h2, h3 {
+    font-family: Arial;
+    }
+
+    (Aplica a fonte Arial a todas as tags <h1>, <h2> e <h3>.)
+*/
+
+
+
+/*
+                                        Unidades de medida no CSS:
+
+    No CSS, usamos diferentes unidades de medida para definir tamanhos de fontes, margens, espaçamentos e outros atributos.
+    Cada unidade possui características específicas que influenciam como os elementos se comportam em diferentes tamanhos de tela.
+*/
+
+/*
+    1. Unidades Absolutas:
+    As unidades absolutas sempre têm o mesmo tamanho, independentemente das dimensões da tela ou do elemento pai.
+
+    Exemplo: px (pixels)
+
+    font-size: 16px;
+
+    (Define que o tamanho da fonte será exatamente 16 pixels, independentemente da tela ou do zoom do navegador.)
+*/
+
+/*
+    2. Unidades Relativas:
+    As unidades relativas dependem do contexto em que são usadas, como o tamanho da fonte do elemento pai.
+
+    a) rem (root em)
+
+    'rem' é uma unidade relativa ao tamanho da fonte do elemento raiz (<html>).
+    
+    Exemplo:
+
+    html {
+    font-size: 16px;
+    }
+
+    h1 {
+    font-size: 2rem;
+    }
+
+    (O <h1> terá o dobro do tamanho da fonte do <html>, ou seja, 32px, pois 1rem = 16px no exemplo acima.)
+
+    b) em
+
+    'em' é uma unidade relativa ao tamanho da fonte do elemento pai direto.
+    
+    Exemplo:
+
+    .container {
+    font-size: 20px;
+    }
+
+    .container p {
+    font-size: 1.5em;
+    }
+
+    (A tag <p> dentro de .container terá um tamanho de 1.5 vezes o tamanho da fonte do pai, ou seja, 30px.)
+
+    Observação: 
+    - rem é mais previsível que em, já que sempre depende do elemento raiz.
+    - em pode causar efeitos acumulativos se aplicado em elementos aninhados.
+*/
+
+/*
+    c) %
+
+    A unidade % é relativa ao tamanho de outro elemento. Por exemplo, quando aplicada a largura, ela será relativa ao tamanho do elemento pai.
+
+    Exemplo:
+
+    .box {
+    width: 50%;
+    }
+
+    (A largura da .box será 50% da largura do elemento pai.)
+
+    Também podemos usar % para definir o tamanho da fonte:
+
+    Exemplo:
+
+    html {
+    font-size: 100%;
+    }
+
+    (Isso define que o tamanho da fonte do <html> será igual ao padrão do navegador, geralmente 16px.)
+*/
+
+/*
+    d) vh e vw
+
+    vh (viewport height) e vw (viewport width) são unidades relativas ao tamanho da tela visível (viewport).
+
+    Exemplo:
+
+    .fullscreen {
+    width: 100vw;
+    height: 100vh;
+    }
+
+    (Define que o elemento ocupará 100% da largura e altura da viewport.)
+*/
+
+/*
+    e) vmin e vmax
+
+    - vmin é a menor dimensão entre a largura e a altura da viewport.
+    - vmax é a maior dimensão entre a largura e a altura da viewport.
+
+    Exemplo:
+
+    .square {
+    width: 10vmin;
+    height: 10vmin;
+    }
+
+    (A largura e a altura do elemento serão 10% da menor dimensão da tela, garantindo que ele permaneça sempre quadrado.)
+*/
+
+
+
+/*
+                                        Pseudoclasses no CSS:
+
+    Pseudoclasses são palavras-chave precedidas por dois pontos (:) que definem o estado especial de um elemento.
+    Elas permitem estilizar elementos com base em interações do usuário (como hover) ou em seu estado (como elementos visitados ou focados).
+*/
+
+/*
+    1. :hover
+    Aplica o estilo quando o usuário passa o mouse sobre um elemento.
+
+    Exemplo:
+
+    button:hover {
+    background-color: lightblue;
+    }
+
+    (Muda a cor de fundo do botão para azul-claro quando o usuário passa o mouse sobre ele.)
+*/
+
+/*
+    2. :focus
+    Aplica o estilo quando um elemento recebe o foco (geralmente em formulários, ao clicar ou usar Tab).
+
+    Exemplo:
+
+    input:focus {
+    border: 2px solid blue;
+    }
+
+    (Aplica uma borda azul ao campo de entrada quando ele recebe o foco.)
+*/
+
+/*
+    3. :nth-child(n)
+    Seleciona o n-ésimo filho de um elemento pai.
+
+    Exemplo:
+
+    li:nth-child(2) {
+    color: red;
+    }
+
+    (Aplica a cor vermelha ao segundo item da lista <li>.)
+*/
+
+/*
+    4. :first-child e :last-child
+    Selecionam o primeiro e o último filho de um elemento pai, respectivamente.
+
+    Exemplo:
+
+    p:first-child {
+    font-weight: bold;
+    }
+
+    p:last-child {
+    color: gray;
+    }
+
+    (O primeiro parágrafo terá texto em negrito, e o último parágrafo será cinza.)
+*/
+
+
+
+/*
+                                            Animações no CSS:
+
+    O CSS permite criar animações suaves que mudam o estilo de um elemento ao longo do tempo.
+    Para isso, usamos a regra @keyframes para definir os quadros (frames) da animação.
+*/
+
+/*
+    1. Criando uma animação com @keyframes
+
+    Exemplo:
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    (Essa animação faz um elemento aparecer gradualmente, começando com opacidade 0 e terminando com opacidade 1.)
+*/
+
+/*
+    2. Aplicando a animação a um elemento
+
+    Exemplo:
+
+    .box {
+        animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    Explicação:
+    - fadeIn: nome da animação (definida com @keyframes).
+    - 2s: duração da animação (2 segundos).
+    - ease-in-out: tipo de transição (início e fim suaves).
+    - forwards: mantém o estado final da animação após ela terminar.
+*/
+
+/*
+    3. Animação infinita
+
+    Para repetir uma animação indefinidamente, usamos a palavra-chave infinite.
+
+    Exemplo:
+
+    .loader {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    (Isso cria uma animação contínua que faz o elemento girar.)
+*/

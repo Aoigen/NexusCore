@@ -1,0 +1,151 @@
+* {
+    margin: 0;                       /* Remove a margem padrão de todos os elementos */
+    padding: 0;                      /* Remove o espaçamento interno padrão */
+    font-family: monospace;          /* Define a fonte como monospace para todos os elementos */
+    background: black;             /* Define a cor de fundo como preta */
+    color: azure;                  /* Define a cor do texto como azul-claro */
+    box-sizing: border-box;
+}
+
+a, button {
+    background-color: transparent;
+}
+
+.background {
+    display: flex;                                  /* Ativa o layout Flexbox para a organização de elementos */
+    justify-content: center;                        /* Centraliza os elementos horizontalmente no contêiner */
+    align-items: center;                            /* Centraliza os elementos verticalmente no contêiner */
+    position: relative;                             /* Define o posicionamento como relativo para permitir ajustes */
+    height: 100vh;                                  /* Define a altura da área como 100% da altura da viewport */
+    width: 100vw;                                   /* Define a largura da área como 100% da largura da viewport */
+    background-image: url(../images/3.png);         /* Aplica uma imagem de fundo ao contêiner */
+    background-size: cover;                         /* Ajusta a imagem de fundo para cobrir toda a área do contêiner */
+    opacity: 0;                                     /* Inicialmente torna o fundo invisível */
+    animation: backgroundImage 1s ease-in forwards; /* Animação para tornar o fundo visível gradualmente */
+}
+
+.background:has(.title button:hover) {
+    background-image: url(../images/3\(+Celofane\).png); /* Muda a imagem de fundo quando o botão é pressionado */
+    transition: background-image 1.5s linear;            /* Aplica uma transição suave para a troca da imagem de fundo */
+}
+
+.title, .inputInfo {
+    text-align: center;                   /* Centraliza o texto dentro da área do título */
+    margin-bottom: 1rem;                  /* Adiciona um espaçamento inferior para separar o título de outros elementos */
+    max-width: 30rem;                     /* Limita a largura máxima das <div>s para 30rem */
+    background-color: transparent;        /* Define o fundo como transparente */
+}
+
+.title h1, .inputInfo h1 {
+    margin-bottom: 1rem;                                      /* Define o espaço abaixo do título principal */
+    font-size: 4rem;                                          /* Ajusta o tamanho da fonte para o título */
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 0); /* Aplica uma sombra sutil no texto */
+    background-color: transparent;                            /* Define um fundo transparente para o título */
+    animation: changeColor 5s linear forwards,                /* Anima a cor do título ao longo de 5 segundos */
+               changeShadow 5s linear forwards;               /* Anima a sombra do título ao longo de 5 segundos */
+}
+
+.title button{
+    height: 3.5rem;                                /* Define a altura do botão */
+    width: 3.5rem;                                 /* Define a largura do botão */
+    color: rgba(0, 0, 0, 0);                     /* Torna o texto do botão invisível */
+    border-radius: 100%;                           /* Arredonda os cantos do botão, criando uma forma circular */
+    box-shadow: 0 0 0.2rem rgba(0, 255, 255, 1); /* Aplica uma sombra azul clara no botão */
+    cursor: pointer;                               /* Modifica o cursor para indicar que o botão é clicável */
+}
+
+.title button:hover {                           /* Define os efeitos ao passar o mouse sobre o botão */
+    box-shadow: 0 0 1rem rgb(0, 255, 255, 1); /* Intensifica a sombra do botão ao passar o mouse */
+    transform: rotate(360deg);                  /* Adiciona um efeito de rotação no botão */
+    transition: transform 1.5s linear;          /* Aplica uma transição suave no efeito de rotação */
+}
+
+/* Animação para mudar a opacidade do site */
+@keyframes backgroundImage {
+    to { opacity: 1; }
+}
+
+/* Animação para mudar a cor do texto */
+@keyframes changeColor {
+    to { color: rgba(255, 0, 0, 0.6); }
+}
+
+/* Animação para mudar a sombra do texto */
+@keyframes changeShadow {
+    to { text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 1); }
+}
+
+.registerForm {
+    position: relative;             /* Posiciona o formulário de registro de forma relativa */
+    display: flex;                  /* Organiza os campos de entrada de forma flexível */
+    flex-direction: column;         /* Organiza os elementos na direção de uma coluna */
+    padding: 1rem;                  /* Adiciona um espaçamento interno de 1rem para os campos de entrada */
+    background-color: transparent;  /* Define um fundo transparente para o formulário */
+    box-shadow: 0 0 1.5rem azure; /* Aplica uma sombra azul ao redor do formulário */
+    border: 1rem groove black;    /* Aplica uma borda estilo groove de cor preta */
+    border-radius: 1rem;            /* Arredonda os cantos do formulário */
+}
+
+.inputCompleteNameContainer,
+.inputUsernameContainer,
+.inputEmailContainer,
+.inputTelephoneContainer,
+.inputPasswordContainer,
+.inputConfirmPasswordContainer {
+    background-color: transparent;
+}
+
+.inputCompleteNameContainer input,
+.inputUsernameContainer input,
+.inputEmailContainer input,
+.inputTelephoneContainer input,
+.inputPasswordContainer input,
+.inputConfirmPasswordContainer input {
+    width: 100%;
+    height: 3rem;
+    padding: 0 15% 0 5%;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: transparent;
+}
+
+#toggleCompleteName,
+#toggleUsername,
+#toggleEmail,
+#toggleTelephone,
+#togglePassword,
+#toggleConfirmPassword {
+    position: absolute;
+    margin-top: 0.5rem;
+    right: 8%;
+    height: 2rem;                                  /* Define a altura do botão */
+    width: 2rem;                                   /* Define a largura do botão */
+    color: rgba(0, 0, 0, 0);                     /* Torna o texto do botão invisível */
+    border-radius: 100%;                           /* Arredonda os cantos do botão, criando uma forma circular */
+    box-shadow: 0 0 0.2rem rgba(0, 255, 255, 1); /* Aplica uma sombra azul clara no botão */
+    cursor: pointer;                               /* Modifica o cursor para indicar que o botão é clicável */
+}
+
+#registerButton {
+    padding-left: 0.5rem;           /* Adiciona um espaçamento à esquerda no botão */
+    padding-right: 0.5rem;          /* Adiciona um espaçamento à direita no botão */
+    width: 100%;                    /* Faz o botão ocupar 100% da largura disponível */
+    height: 3rem;                   /* Define a altura do botão */
+    cursor: pointer;                /* Indica que o botão é clicável */
+    border-radius: 1.5rem;
+}
+
+.inputInfo {
+    height: auto;
+    margin-left: 10rem;
+    margin-right: 2rem;
+}
+
+.inputInfo h1 {
+    font-size: 3rem;
+}
+
+.inputInfo p{
+    font-size: 1.5rem;
+    background-color: transparent;
+}

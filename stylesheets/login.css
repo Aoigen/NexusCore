@@ -1,0 +1,159 @@
+* {
+    margin: 0;                     /* Remove a margem padrão de todos os elementos */
+    padding: 0;                    /* Remove o espaçamento interno padrão */
+    font-family: monospace;        /* Define uma fonte monoespaçada para todos os elementos */
+    background: black;           /* Define a cor de fundo como preta */
+    color: azure;                /* Define a cor do texto como azul-claro */
+    box-sizing: border-box;
+}
+
+a, button {
+    background-color: transparent;
+}
+
+.background {
+    height: 100vh;                                           /* Define a altura da <div> como 100% da altura da viewport */
+    width: 100vw;                                            /* Define a largura da <div> como 100% da largura da viewport */
+    display: flex;                                           /* Ativa o Flexbox para alinhar os elementos dentro da div */
+    justify-content: center;                                 /* Centraliza os elementos horizontalmente */
+    align-items: center;                                     /* Centraliza os elementos verticalmente */
+    position: relative;                                      /* Define o posicionamento relativo da <div> em relação ao seu container */
+    background-image: url(../images/2.png);                  /* Define uma imagem de fundo */
+    background-size: cover;                                  /* Faz a imagem de fundo cobrir toda a área da div */
+    opacity: 0;                                              /* Define a opacidade inicial como 0 (transparente) */
+    animation: backgroundImage 1s ease-in forwards;          /* Aplica uma animação para fazer a opacidade ir de 0 a 1 */
+}
+
+.background:has(.title button:hover) {
+    background-image: url(../images/2\(+Celofane\).png);     /* Altera a imagem de fundo quando o botão dentro de .title é focado */
+    transition: background-image 1.5s linear;                /* Adiciona uma transição linear de 1.5s para a mudança da imagem */
+}
+
+.title {
+    text-align: center;                                      /* Alinha o conteúdo (título e parágrafo) ao centro */
+    max-width: 30rem;                                        /* Limita a largura máxima da div a 30rem */
+    margin-bottom: 1rem;                                     /* Adiciona um espaçamento inferior de 28rem */
+    background-color: rgba(0, 0, 0, 0);                    /* Define um fundo transparente */
+}
+
+.title h1 {
+    margin-bottom: 1rem;
+    font-size: 4rem;                                           /* Define o tamanho da fonte do título como 4rem */
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 0);  /* Adiciona uma sombra nos textos com deslocamento de 0.2rem */
+    background-color: rgba(0, 0, 0, 0);                      /* Define um fundo transparente */
+    animation: changeColor 5s linear forwards,                 /* Aplica animações para mudar a cor do texto */
+               changeShadow 5s linear forwards;                /* e a sombra ao longo de 5 segundos */
+}
+
+.title button {
+    height: 3.5rem;                                          /* Define a altura do botão como 3.5rem */
+    width: 3.5rem;                                           /* Define a largura do botão como 3.5rem */
+    color: rgba(0, 0, 0, 0);                               /* Torna o texto do botão invisível */
+    border-radius: 100%;                                     /* Arredonda os cantos do botão ao máximo */
+    box-shadow: 0 0 0.2rem rgba(0, 255, 255, 1);           /* Adiciona uma leve sombra azul ao redor do botão */
+    cursor: pointer;                                         /* Mostra um ícone de clique ao passar o mouse sobre o botão */
+}
+
+.title button:hover {                                        /* A pseudoclasse :hover aplica estilo ao passar o mouse no botão */
+    box-shadow: 0 0 1rem rgb(0, 255, 255, 1);              /* Aumenta a sombra azul ao passar o mouse */
+    transform: rotate(360deg);                               /* Rotaciona o botão em 360 graus */
+    transition: transform 1.5s linear;                       /* Adiciona uma transição suave de 1.5s para a rotação */
+}
+
+/* Animação para mudar a opacidade do site */
+@keyframes backgroundImage {
+    to {
+        opacity: 1;                                          /* A opacidade final da animação será 1 (completamente visível) */
+    }
+}
+
+/* Animação para mudar a cor do texto */
+@keyframes changeColor {
+    to {
+        color: rgba(255, 0, 0, 0.6);                         /* Muda a cor do texto para vermelho translúcido */
+    }
+}
+
+/* Animação para mudar a sombra do texto */
+@keyframes changeShadow {
+    to {
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 1); /* Muda a sombra para azul claro com opacidade total */
+    }
+}
+
+.loginForm {
+    position: absolute;                                      /* Posiciona o formulário em relação ao seu elemento pai */
+    display: flex;                                           /* Ativa o Flexbox para organizar os elementos */
+    flex-direction: column;                                  /* Organiza os elementos em uma coluna */
+    padding: 1rem;                                           /* Adiciona um espaçamento interno de 1rem em todos os lados */
+    background-color: transparent;                           /* Define um fundo transparente */
+    box-shadow: 0 0 1.5rem azure;                          /* Adiciona uma sombra azul ao redor do formulário */
+    border: 1rem groove black;                             /* Cria uma borda estilo groove (entalhada) de 1rem na cor preta */
+    border-radius: 1rem;                                     /* Arredonda os cantos do formulário com 1rem de raio */
+}
+
+.inputUsernameContainer,
+.inputPasswordContainer {
+    background-color: transparent;
+}
+
+.inputUsernameContainer input,
+.inputPasswordContainer input {
+    width: 100%;
+    height: 3rem;
+    padding: 0 15% 0 5%;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: transparent;
+}
+
+#toggleUsername,
+#togglePassword {
+    position: absolute;
+    margin-top: 0.5rem;
+    right: 8%;
+    height: 2rem;                                  /* Define a altura do botão */
+    width: 2rem;                                   /* Define a largura do botão */
+    color: rgba(0, 0, 0, 0);                     /* Torna o texto do botão invisível */
+    border-radius: 100%;                           /* Arredonda os cantos do botão, criando uma forma circular */
+    box-shadow: 0 0 0.2rem rgba(0, 255, 255, 1); /* Aplica uma sombra azul clara no botão */
+    cursor: pointer;                               /* Modifica o cursor para indicar que o botão é clicável */
+}
+
+.formOptions {
+    display: grid;                                           /* Ativa o Grid Layout para organizar os botões */
+    grid-template-rows: auto auto;                           /* Cria duas linhas automáticas com altura ajustada ao conteúdo */
+    grid-template-columns: 1fr 1fr;                          /* Cria duas colunas de tamanho igual */
+    background-color: transparent;                           /* Define um fundo transparente */
+}
+
+.formOptions a:nth-child(1) {                                /* Seleciona o primeiro link dentro de .formOptions */
+    grid-column: span 2;                                     /* Faz o primeiro link ocupar as duas colunas da primeira linha */
+}
+
+#loginButton {
+    padding-left: 0.5rem;                                    /* Adiciona um espaçamento interno à esquerda de 0.5rem */
+    padding-right: 0.5rem;                                   /* Adiciona um espaçamento interno à direita de 0.5rem */
+    width: 100%;                                             /* Faz o botão ocupar toda a largura disponível */
+    height: 3rem;                                            /* Define a altura do botão como 3rem */
+    cursor: pointer;                                         /* Mostra o ícone de clique ao passar o mouse sobre o botão */
+    border-radius: 1.5rem 1.5rem 0 0;                        /* Nenhum arredondamento nos cantos superiores */
+}
+
+#registerButton {
+    padding-left: 0.5rem;                                    /* Adiciona um espaçamento interno à esquerda de 0.5rem */
+    padding-right: 0.5rem;                                   /* Adiciona um espaçamento interno à direita de 0.5rem */
+    width: 100%;                                             /* Faz o botão ocupar toda a largura disponível */
+    height: 3rem;                                            /* Define a altura do botão como 3rem */
+    cursor: pointer;                                         /* Mostra o ícone de clique ao passar o mouse sobre o botão */
+    border-radius: 0 0 0rem 1.5rem;                          /* Arredonda apenas os cantos inferiores */
+}
+
+#recoverButton {
+    padding-left: 0.5rem;                                    /* Adiciona um espaçamento interno à esquerda de 0.5rem */
+    padding-right: 0.5rem;                                   /* Adiciona um espaçamento interno à direita de 0.5rem */
+    width: 100%;                                             /* Faz o botão ocupar toda a largura disponível */
+    height: 3rem;                                            /* Define a altura do botão como 3rem */
+    cursor: pointer;                                         /* Mostra o ícone de clique ao passar o mouse sobre o botão */
+    border-radius: 0 0 1.5rem 0rem;                          /* Arredonda apenas os cantos inferiores */
+}

@@ -1,0 +1,90 @@
+* {
+    margin: 0;                       /* Remove a margem padrão de todos os elementos */
+    padding: 0;                      /* Remove o espaçamento interno padrão */
+    font-family: monospace;          /* Define a fonte para todos os elementos como monospace */
+    background: black;             /* Define a cor de fundo como preta */
+    color: azure;                  /* Define a cor do texto como azul-claro */
+}
+
+a, button {
+    background-color: transparent;
+}
+
+.background {
+    display: flex;                                   /* Ativa o Flexbox, permitindo alinhar os elementos filhos */
+    justify-content: center;                         /* Centraliza os elementos filhos horizontalmente */
+    align-items: center;                             /* Centraliza os elementos filhos verticalmente */
+    position: relative;                              /* Define a posição como relativa para posicionamento interno */
+    height: 100vh;                                   /* Define a altura da <div> como 100% da altura da viewport */
+    width: 100vw;                                    /* Define a largura da <div> como 100% da largura da viewport */
+    background-image: url(../images/1.png);          /* Adiciona uma imagem de fundo */
+    background-size: cover;                          /* Faz a imagem de fundo cobrir toda a área da div */
+    opacity: 0;                                      /* Define a opacidade inicial da <div> como 0 (totalmente transparente) */
+    animation: backgroundImage 5s ease-in forwards;  /* Aplica uma animação que aumenta a opacidade para 1 em 5 segundos */
+}
+
+/* Estilização quando um botão dentro da <div> .background é focado com o mouse */
+.background:has(button:hover) {
+    background-image: url(../images/1\(+Celofane\).png);   /* Altera a imagem de fundo */
+    transition: background-image 1.5s linear;             /* Aplica uma transição linear de 1.5 segundos */
+}
+
+.title {
+    text-align: center;                                      /* Alinha o conteúdo ao centro */
+    border: 1rem groove rgba(0, 0, 0, 0);                  /* Cria uma borda groove de 1rem transparente */
+    border-radius: 2rem;                                     /* Arredonda os cantos da borda com 2rem de raio */
+    box-shadow: 0 0 1rem rgba(255, 255, 255, 0);           /* Adiciona uma sombra com blur de 1rem na cor branca transparente */
+    max-width: 56rem;                                        /* Limita a largura máxima da div a 56rem */
+    background-color: rgba(0, 0, 0, 0);                    /* Define a cor de fundo transparente */
+    margin-left: 26rem;                                      /* Adiciona uma margem esquerda de 26rem */
+}
+
+.title h1 {
+    font-size: 4rem;                                          /* Define o tamanho da fonte do título como 4rem */
+    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 0); /* Adiciona uma sombra com 0.2rem de deslocamento e blur transparente */
+    background-color: rgba(0, 0, 0, 0);                     /* Define o fundo do título como transparente */
+    animation: changeColor 5s linear forwards,                /* Aplica animações para mudar a cor do texto */
+               changeShadow 5s linear forwards;               /* e a sombra ao longo de 5 segundos */
+}
+
+.title h2 {
+    background-color: transparent;
+}
+
+.title button {
+    height: 6.5rem;                                /* Define a altura do botão como 6.5rem */
+    width: 6.5rem;                                 /* Define a largura do botão como 6.5rem */
+    margin-top: 2rem;                              /* Adiciona uma margem superior de 2rem */
+    color: transparent;                            /* Deixa o texto totalmente transparente */
+    border-radius: 100%;                           /* Arredonda o botão completamente */
+    box-shadow: 0 0 0.2rem rgba(0, 255, 255, 1); /* Adiciona uma sombra ciano ao botão */
+    cursor: pointer;                               /* Altera o cursor para indicar clique ao passar o mouse */
+    background-color: transparent;
+}
+
+.title button:hover {                               
+    box-shadow: 0 0 1rem rgba(0, 255, 255, 1);    /* Aumenta a intensidade da sombra quando o botão é focado */
+    transform: rotate(360deg);                      /* Rotaciona o botão em 360 graus */
+    transition: transform 1.5s linear;              /* Aplica uma transição suave na rotação */
+}
+
+/* Animação para alterar a opacidade de 0 a 1 */
+@keyframes backgroundImage {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação para mudar a cor do texto */
+@keyframes changeColor {
+    to {
+        color: rgba(255, 0, 0, 0.6);
+    }
+}
+
+/* Animação para mudar a sombra do texto */
+@keyframes changeShadow {
+    to {
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 255, 255, 1);
+    }
+}

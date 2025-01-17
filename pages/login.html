@@ -1,0 +1,76 @@
+<!-- A tag <html> contém todo o código da página. É a raiz do documento HTML
+    e o lar de todas as outras tags. Ela, assim como qualquer tag, precisa ser fechada.
+    O fechamento de qualquer tag é identificado por uma barra no começo do nome da tag.
+    Ex: <html> Conteudo </html> -->
+
+<!DOCTYPE html>
+
+<!-- A tag <head> contém informações sobre a própria página e não o conteúdo visível
+    para o usuário. Essas informações são carregadas antes do corpo da página para que
+    os navegadores saibam como lidar com o conteúdo antes de renderizá-lo.
+        
+    Armazena informações importantes sobre a página, como o título (exibido na aba do
+    navegador), links para arquivos externos (CSS, JavaScript, etc.) e metadados
+    (como charset e viewport).-->
+    
+<head>
+    
+    <!-- Links para arquivos externos: 
+        Stylesheets & Scripts (CSS & JavaScript).-->
+    
+    <link rel="stylesheet" href="../stylesheets/login.css">
+    <script src="../scripts/login.js" defer></script>
+    
+    <!-- Título (na aba do navegador).-->
+    
+    <title>Login</title>
+    
+</head>
+    
+<!-- A tag <body> contém todo o conteúdo visível da página, como texto,
+    imagens, vídeos e botões.
+        
+    Será comum a utilização de tags <div> por aqui, utilizadas para organização e estilização da página,
+    contendo atributos como 'class' e 'id' para identificação do CSS, JS, Java, etc.-->
+    
+<body>
+
+    <div class="background">
+    
+        <form class="loginForm">
+
+            <div class="title">
+                <h1>Login</h1>
+                <a href="../index.html">
+                    <button type="button"></button>
+                </a>
+            </div>
+
+            <div class="inputUsernameContainer">
+                <input id="inputUsername" type="text" placeholder="Username" required>
+            <!--<button id="toggleUsername" type="button"></button>-->
+            </div>
+
+            <div class="inputPasswordContainer">
+                <input id="inputPassword" type="password" placeholder="Password" required>
+                <button id="togglePassword" type="button"></button>
+            </div>
+
+            <div class="formOptions">
+                <a href="">
+                    <button id="loginButton">Login</button>
+                </a>
+                <a href="../pages/register.html">
+                    <button type="button" id="registerButton">Register</button>
+                </a>
+                <a href="">
+                    <button type="button" id="recoverButton">Recover Account</button>
+                </a>                    
+            </div>
+
+        </form>
+
+    </div>
+        
+    </body>
+    </html>
