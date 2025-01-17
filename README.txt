@@ -8,7 +8,7 @@ O projeto está em desenvolvimento constante, recebendo mudanças em suas caract
 
     Objetivos principais:
 - Servir como base para o aprendizado de frameworks e ferramentas em projetos futuros.
-- Demonstrar habilidades no uso de tecnologias como Java, MySQL, HTML, CSS e JavaScript.
+- Demonstrar habilidades no uso de tecnologias como Java, MySQL (Workbench), HTML, CSS e JavaScript.
 - Desenvolver um sistema CRUD funcional com foco em simplicidade e organização de código.
 
     Características do projeto:
