@@ -32,8 +32,8 @@ public class UserDAO {
         try {
             // Tentando (try) carregar a classe do driver JDBC do MySQL
             // Essa classe é necessária para que o Java saiba como se comunicar com o banco de dados MySQL
-            // É nessa parte que escolhemos qual b utilizará MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Carrega o driver do MySQLanco de dados iremos utilizar. O Nexus Core
+            // É nessa parte que escolhemos qual será o banco de dados utilizado. O Nexus Core utilizará MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver"); // Carrega o driver do MySQL para se comunicar com o JDBC
 
         } catch (ClassNotFoundException e) {
             // Se o driver não for encontrado, armazena o motivo em "e", exibindo uma mensagem de erro e
