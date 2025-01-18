@@ -6,13 +6,19 @@ import java.sql.DriverManager; // Classe usada para obter a conexão com o banco
 import java.sql.PreparedStatement; // Classe usada para executar uma consulta SQL de forma segura
 import java.sql.SQLException; // Classe que representa as exceções relacionadas a erros de SQL
 
-// Definindo a classe 'UserDAO' responsável por interagir com o banco de dados
+// Definindo a classe 'UserDAO', responsável por interagir com o banco de dados
+// Outras classes (servlets) como por exemplo UserRegisterServlet, vão instanciar o UserDAO, que fornecerá métodos como:
+// - Registro de novos usuários
+// - Autenticação de usuários existentes
+// - Manipulação e gerenciamento de dados de usuários
+// Cada servlet vai agir como um ponto de entrada para o programa, semelhante ao método "main" em Java
+// O UserDAO em si apenas fornecerá métodos, não sendo ele um servlet ou método "main"
 public class UserDAO {
 
-    // Definindo constantes para os dados de conexão com o banco de dados
+    // Definindo constantes para armanezar as credencias de conexão com o banco de dados
     // Em ambientes corporativos, para mais segurança, podemos armazenar esses dados em arquivos .properties ou usar bibliotecas para criptografar esses dados
-    // Este é um projeto acadêmico e não possui essa necessidade.
-    // No entanto, sempre remova as credênciais antes de empurrar isso em repositórios ou outros lugares na web
+    // Este é um projeto acadêmico e não possui essa necessidade
+    // Portanto, sempre remova as credênciais antes de empurrar isso em repositórios ou outros lugares na web
     private static final String DB_URL = "jdbc:mysql://localhost:3306/NexusCore"; // URL do banco de dados MySQL
     private static final String DB_USER = "root"; // Usuário do banco de dados
     private static final String DB_PASSWORD = ""; // Senha do banco de dados (vazia neste caso)
@@ -21,12 +27,12 @@ public class UserDAO {
     // Este método receberá os dados do usuário e irá inserí-los na tabela 'users' do banco de dados
     public boolean registerUser(String complete_name, String email, String telephone, String username, String password) {
 
-        // Exibindo uma mensagem informando que o processo de registro está começando
+        // Exibindo uma mensagem no console informando que o processo de registro está começando
         System.out.println("Tentando registrar usuário...");
 
         // Essa String armazena a consulta SQL que será executada no banco de dados para registrar o novo usuário
         // Ela utiliza placeholders ('?') para evitar SQL Injection, onde os valores serão substituídos mais tarde
-        // Ela também otimiza consultas que são executadas várias vezes, já que elas são pré-compiladas pelo banco
+        // Ela também otimiza consultas que são executadas várias vezes, já que elas são pré-compiladas pelo banco de dados
         String query = "INSERT INTO users (complete_name, email, telephone, username, password) VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -37,7 +43,7 @@ public class UserDAO {
 
         } catch (ClassNotFoundException e) {
             // Se o driver não for encontrado, armazena o motivo em "e", exibindo uma mensagem de erro e
-            // imprimindo a stack trace (pilha de chamas) para diagnosticar o erro
+            // imprimindo a stack trace (pilha de chamadas) para diagnosticar o erro
             System.out.println("Driver MySQL não encontrado: " + e.getMessage()); // Exibe o motivo do erro.
             e.printStackTrace(); // Imprime a pilha de chamadas (stack trace) no console, ajudando no diagnóstico do erro.
         }
@@ -49,8 +55,7 @@ public class UserDAO {
             // O 'DriverManager' é responsável por estabelecer a conexão com o banco
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD); // Conecta ao banco de dados
             // 'PreparedStatement' é usado para preparar a consulta SQL de forma segura e eficiente
-            // Prepara a consulta SQL usando a String "query" criada no começo, que armazena a estrutura com os placeholders
-            // para serem substituídos
+            // Essa classe prepara a consulta SQL usando a String "query" criada no começo, que armazena a estrutura com os placeholders
             PreparedStatement pstmt = conn.prepareStatement(query)
         ) {
             // Agora que temos o 'PreparedStatement', substituímos os placeholders (?) pelos valores fornecidos no método
@@ -65,11 +70,11 @@ public class UserDAO {
             pstmt.setString(5, password); // Define o valor do quinto placeholder (password)
 
             // Após a consulta SQL ser executada, o número de linhas afetadas é retornado
-            // O mesmo é então armazenado nesse novo inteiro, chamado rowsAffected
+            // O número é então armazenado nesse novo inteiro, chamado rowsAffected
             int rowsAffected = pstmt.executeUpdate(); // Executa a query de inserção
 
             // Exibe no console o número de linhas que foram afetadas pela query (deve ser 1 se o registro for bem-sucedido)
-            // Não confundir linhas afetadas com tabelas ou colunas. Cada linha representa uma inserção inteira
+            // Não confundir linhas afetadas com tabelas ou colunas. Cada linha representa um usuário inteiro
             System.out.println("Linhas afetadas: " + rowsAffected);
 
             // Retorna 'true' se pelo menos uma linha foi afetada, indicando sucesso no registro
