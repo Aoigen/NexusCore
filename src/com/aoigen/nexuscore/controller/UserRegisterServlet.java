@@ -31,7 +31,7 @@ public class UserRegisterServlet extends HttpServlet { // Estende a classe HttpS
         // apropriada para o cliente (como um código de erro HTTP ou página web personalizada, dependendo da configuração)
     throws ServletException, IOException {
 
-        // Mensagem no console indicando que o servlet teve sucesso em sua adição
+        // Mensagem no console indicando que o servlet teve sucesso em sua ativação
         System.out.println("Servlet acionado.");
 
         // Abaixo, definimos o tipo de conteúdo da resposta como texto simples ("text/plain").
@@ -42,7 +42,7 @@ public class UserRegisterServlet extends HttpServlet { // Estende a classe HttpS
         // exibir corretamente a resposta ou até mesmo tratá-la de forma incorreta.
         response.setContentType("text/plain");
 
-        // Passo 1: Capturar os dados enviados pelo formulário HTML
+        // Passo 1: Capturar os dados enviados pelo formulário HTML e armazená-los em Strings
         // O método getParameter pega os valores dos campos de formulário
         String complete_name = request.getParameter("complete_name");
         String email = request.getParameter("email");
@@ -52,17 +52,19 @@ public class UserRegisterServlet extends HttpServlet { // Estende a classe HttpS
 
         System.out.println("Dados recebidos:");
         System.out.println("Complete Name: " + complete_name);
+        System.out.println("Username: " + username);
         System.out.println("Email: " + email);
         System.out.println("Telephone: " + telephone);
-        System.out.println("Username: " + username);
         System.out.println("Password: " + password);
 
         // Passo 2: Validar os dados do formulário
+        // Se algum campo obrigatório estiver vazio...
         if (complete_name == null || complete_name.isEmpty() ||
-            email == null || email.isEmpty() ||
             username == null || username.isEmpty() ||
+            email == null || email.isEmpty() ||
+            telephone == null || telephone.isEmpty() ||
             password == null || password.isEmpty()) {
-            // Se algum campo obrigatório estiver vazio, envia uma mensagem de erro
+            // Envia uma mensagem de erro
             response.getWriter().println("Por favor, preencha todos os campos obrigatórios.");
             return; // Interrompe a execução
         }
@@ -115,7 +117,7 @@ public class UserRegisterServlet extends HttpServlet { // Estende a classe HttpS
 
         // Passo 3: Interagir com o banco de dados através do UserDAO
         UserDAO userDAO = new UserDAO(); // Cria uma instância do DAO
-        boolean isRegistered = userDAO.registerUser(complete_name, email, telephone, username, password);
+        boolean isRegistered = userDAO.registerUser(complete_name, username, email, telephone, password);
 
         // Passo 4: Enviar uma resposta de acordo com o resultado da operação
         if (isRegistered) {
