@@ -13,7 +13,7 @@ import java.io.IOException;
 import com.aoigen.nexuscore.dao.UserDAO;
 
 // A anotação @WebServlet define o endpoint para este servlet, fazendo-o se comportar parecido com o que conhecemos como método "main" no Java
-// Ele o associa à pagina HTML que o cliente estará usando. Também poderia ser outra aplicação não-web
+// Ele o associa à pagina HTML que o cliente estará usando ou a outras aplicações
 @WebServlet("/pages/register")
 // A classe 'UserRegisterServlet' estende 'HttpServlet', que fornece a base
 // para criar servlets que processam requisições HTTP (como GET e POST)
