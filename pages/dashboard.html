@@ -1,0 +1,62 @@
+<!-- A tag <html> contém todo o código da página. É a raiz do documento HTML
+    e o lar de todas as outras tags. Ela, assim como qualquer tag, precisa ser fechada.
+    O fechamento de qualquer tag é identificado por uma barra no começo do nome da tag.
+    Ex: <html> Conteudo </html> -->
+
+    <!DOCTYPE html>
+
+    <!-- A tag <head> contém informações sobre a própria página e não o conteúdo visível
+        para o usuário. Essas informações são carregadas antes do corpo da página para que
+        os navegadores saibam como lidar com o conteúdo antes de renderizá-lo.
+            
+        Armazena informações importantes sobre a página, como o título (exibido na aba do
+        navegador), links para arquivos externos (CSS, JavaScript, etc.) e metadados
+        (como charset e viewport).-->
+        
+    <head>
+        
+        <!-- Links para arquivos externos: 
+            Stylesheets & Scripts (CSS & JavaScript).-->
+        
+        <link rel="stylesheet" href="../stylesheets/dashboard.css">
+        <script src="../scripts/dashboard.js" defer></script>
+        
+        <!-- Título (na aba do navegador).-->
+        
+        <title>Dashboard</title>
+        
+    </head>
+        
+    <!-- A tag <body> contém todo o conteúdo visível da página, como texto,
+        imagens, vídeos e botões.
+            
+        Será comum a utilização de tags <div> por aqui, utilizadas para organização e estilização da página,
+        contendo atributos como 'class' e 'id' para identificação do CSS, JS, Java, etc.-->
+        
+    <body>
+    
+        <div class="background">
+        
+            <div class="dashboardContainer">
+    
+                <div class="title">
+                    <h1>Dashboard</h1>
+                    <a href="../index.html">
+                        <button type="button"></button>
+                    </a>
+                </div>
+
+                <ol name="userList" class="userListContainer">
+                    <li class="user">
+                        <span class="column">Username1</span>
+                        <span class="column">Email1@example.com</span>
+                        <span class="status">Online</span>
+                    </li>
+                </ol>
+    
+            </div>
+    
+        </div>
+            
+        </body>
+        </html>

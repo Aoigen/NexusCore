@@ -5,7 +5,8 @@ import java.sql.Connection; // Classe para criar e gerenciar uma conexão com o 
 import java.sql.PreparedStatement; // Classe usada para executar uma consulta SQL de forma segura
 import java.sql.SQLException; // Classe que representa as exceções relacionadas a erros de SQL
 
-import com.aoigen.nexuscore.util.DatabaseConnection;
+//Importando a classe DatabaseConnection para carregar os drivers na JVM e se comunicar com JDBC
+import com.aoigen.nexuscore.util.DatabaseConnection; //Importando a classe utilitária para ativar o banco de dados
 
 // Definindo a classe 'UserDAO', responsável por interagir com o banco de dados
 // Outras classes (servlets) como por exemplo UserRegisterServlet, vão instanciar o UserDAO, que fornecerá métodos como:

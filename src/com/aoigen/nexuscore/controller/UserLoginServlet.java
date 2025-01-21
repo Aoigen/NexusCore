@@ -51,20 +51,18 @@ public class UserLoginServlet extends HttpServlet { //Estende a classe HttpServl
         System.out.println("Username: " + username);
         System.out.println("Password: " + password);
 
-        // Passo 2: Validar os dados do formulário
-        // Precisamos criar um método na UserDAO para validar a existência de um usuário no banco de dados
-
-        // Passo 3: Interagir com o banco de dados através do UserDAO
+        // Passo 2: Interagir com o banco de dados através do UserDAO
+        // É aqui que ele vai validar a existencia do user no banco de dados
         UserDAO userDAO = new UserDAO(); // Cria uma instância do DAO
         boolean isRegistered = userDAO.validateUser(username, password);
 
-        // Passo 4: Enviar uma resposta de acordo com o resultado da operação
+        // Passo 3: Enviar uma resposta de acordo com o resultado da operação
         if (isRegistered) {
-            // Se o registro for bem-sucedido, envia uma mensagem de sucesso
-            response.getWriter().println("Usuário registrado com sucesso!");
+            // Se a busca for bem-sucedido, envia uma mensagem de sucesso
+            response.getWriter().println("Usuário encontrado com sucesso!");
         } else {
             // Caso contrário, envia uma mensagem de erro
-            response.getWriter().println("Erro ao registrar o usuário. Tente novamente.");
+            response.getWriter().println("Erro ao encontrar usuário. Tente novamente.");
         }
 
     }
